@@ -5,6 +5,7 @@ conjunctionPath = os.getcwd() + "\\..\\Dictionaries\\conjunctions.txt"
 prepositionPath = os.getcwd() + "\\..\\Dictionaries\\prepositions.txt"
 particlePath = os.getcwd() + "\\..\\Dictionaries\\particles.txt"
 interjectionPath = os.getcwd() + "\\..\\Dictionaries\\interjections.txt"
+pronounsPath = os.getcwd() + "\\..\\Dictionaries\\pronouns.txt"
 punctuationPath = os.getcwd() + "\\..\\Dictionaries\\punctuationMarks.txt"
 
 
@@ -16,7 +17,7 @@ class TextProcessing:
 
     def processText(self):
         setOfStopWords = set(getDictList(conjunctionPath, prepositionPath,
-                             interjectionPath, particlePath))
+                             interjectionPath, particlePath, pronounsPath))
         punctuationWords = set(getDictList(punctuationPath))
         for sign in punctuationWords:
             self._text = self._text.replace(sign, '')
