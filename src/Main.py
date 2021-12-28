@@ -1,4 +1,4 @@
-from TextProcessingClass import TextProcessing
+from TextPreprocessingClass import TextProcessing
 import codecs
 
 path = "C:\\Users\\Lenovo\\Desktop\\Text.txt"
