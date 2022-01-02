@@ -22,7 +22,7 @@ It deletes stop words in input text
 from TextProcessingClass import TextProcessing
 import codecs
 
-path = "C:\\Users\\kshir\\Desktop\\Text.txt"
+path = "C:\\Users\\Lenovo\\Desktop\\Text.txt"
 file = codecs.open(path, encoding='utf-8')
 
 Text = TextProcessing(file.read())
