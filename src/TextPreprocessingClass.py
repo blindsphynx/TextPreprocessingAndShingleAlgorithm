@@ -1,5 +1,6 @@
 from ReadDictClass import getDictList
 import os
+import re
 
 conjunctionPath = os.getcwd() + "\\..\\Dictionaries\\conjunctions.txt"
 prepositionPath = os.getcwd() + "\\..\\Dictionaries\\prepositions.txt"
@@ -15,21 +16,28 @@ class TextProcessing:
             raise Exception("Empty text or not string")
         self._text = text
 
+    def deleteDigits(self):
+        self._text = re.sub(r"\d-[а-я]*", ' ', self._text)   # delete nums with endings which start with a dash ("1-ый")
+        self._text = re.sub(r"\d[а-я]*", ' ', self._text)  # delete nums with endings which start without a dash ("1ый")
+        self._text = re.sub(r"\d", ' ', self._text)        # delete the rest of nums
+
     def collectAllStopWords(self):
         allStopWords = set(getDictList(conjunctionPath, prepositionPath,
                                        interjectionPath, particlePath, pronounsPath))
         punctuationMarks = set(getDictList(punctuationPath))
-        for sign in punctuationMarks:
-            self._text = self._text.replace(sign, '')
-        return allStopWords
+        # delete digits here, otherwise ordinal digits won't be deleted
+        self.deleteDigits()
 
-    # TODO delete digits function
+        for sign in punctuationMarks:
+            self._text = self._text.replace(sign, ' ')
+        return allStopWords
 
     def processText(self):
         setOfStopWords = self.collectAllStopWords()
 
         self._text = self._text.replace('\r', ' ')
         tempText = self._text.split(' ')
+
         for i in range(0, len(tempText)):
             if tempText[i].lower().replace('\r', '').replace('\n', '') in setOfStopWords:
                 tempText[i] = ''
