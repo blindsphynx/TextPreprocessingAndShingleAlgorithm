@@ -18,8 +18,8 @@ class TextProcessing:
 
     def deleteDigits(self):
         self._text = re.sub(r"\d-[а-я]*", ' ', self._text)   # delete nums with endings which start with a dash ("1-ый")
-        self._text = re.sub(r"\d[а-я]*", ' ', self._text)  # delete nums with endings which start without a dash ("1ый")
-        self._text = re.sub(r"\d", ' ', self._text)        # delete the rest of nums
+        self._text = re.sub(r"\d[а-я]*", ' ', self._text)    # delete nums with endings without a dash ("1ый")
+        self._text = re.sub(r"\d", ' ', self._text)          # delete the rest of nums
 
     def collectAllStopWords(self):
         allStopWords = set(getDictList(conjunctionPath, prepositionPath,
