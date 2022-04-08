@@ -1,4 +1,5 @@
 from ReadDictClass import getDictList
+from Lemmatization import lemmatization
 import os
 import re
 
@@ -52,4 +53,5 @@ class TextProcessing:
                 del tempText[it]
             else:
                 it += 1
+        resultText = lemmatization(resultText)
         return resultText
