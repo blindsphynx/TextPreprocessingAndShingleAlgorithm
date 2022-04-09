@@ -2,7 +2,6 @@ from TextPreprocessingClass import TextProcessing
 from ShingleAlgorithm import divideTextIntoShingles
 from Compare import compareTexts
 import codecs
-import os
 
 path1 = "..//test1.txt"
 path2 = "..//test2.txt"

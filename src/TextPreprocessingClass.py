@@ -15,6 +15,19 @@ class TextProcessing:
     def __init__(self, text):
         if text == "" or type(text) is not str:
             raise Exception("Empty text or not string")
+
+        EngToRuDict = {65: 1040, 66: 1042, 67: 1057, 69: 1045, 79: 1054, 80: 1056, 72: 1053, 84: 1058, 97: 1072,
+                       99: 1089, 101: 1077, 111: 1086, 112: 1088, 120: 1093, 121: 1091}
+
+        for i in range(len(text)):
+            if str.isalpha(text[i]):
+                if not 1040 <= ord(text[i]) <= 1103:
+                    try:
+                        text = text[:i] + chr(EngToRuDict[ord(text[i])]) + text[i + 1:]
+                    except KeyError:
+                        print("Undefined symbol {} in text".format(text[i]))
+                        continue
+
         self._text = text
 
     def deleteDigits(self):
