@@ -3,12 +3,12 @@ from Lemmatization import lemmatization
 import os
 import re
 
-conjunctionPath = os.getcwd() + "\\..\\Dictionaries\\conjunctions.txt"
-prepositionPath = os.getcwd() + "\\..\\Dictionaries\\prepositions.txt"
-particlePath = os.getcwd() + "\\..\\Dictionaries\\particles.txt"
-interjectionPath = os.getcwd() + "\\..\\Dictionaries\\interjections.txt"
-pronounsPath = os.getcwd() + "\\..\\Dictionaries\\pronouns.txt"
-punctuationPath = os.getcwd() + "\\..\\Dictionaries\\punctuationMarks.txt"
+conjunctionPath = "..\\Dictionaries\\conjunctions.txt"
+prepositionPath = "..\\Dictionaries\\prepositions.txt"
+particlePath = "..\\Dictionaries\\particles.txt"
+interjectionPath = "..\\Dictionaries\\interjections.txt"
+pronounsPath = "..\\Dictionaries\\pronouns.txt"
+punctuationPath = "..\\Dictionaries\\punctuationMarks.txt"
 
 
 class TextProcessing:

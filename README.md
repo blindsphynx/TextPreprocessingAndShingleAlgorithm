@@ -23,8 +23,8 @@ Before comparing, texts are processed: they are normalized, divided into shingle
 **Taking two texts from files in *utf-8***
 
 ```
-path1 = "C:\\Users\\Lenovo\\Desktop\\HSE\\test1.txt"
-path2 = "C:\\Users\\Lenovo\\Desktop\\HSE\\test2.txt"
+path1 = "..//test1.txt"
+path2 = "..//test2.txt"
 file1 = codecs.open(path1, encoding='utf-8')
 file2 = codecs.open(path2, encoding='utf-8')
 ```
