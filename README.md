@@ -2,9 +2,9 @@
 
 ## Description
 
-This programme is created for text normalization in order to prepare the text for search of text borrowings.
+This programme compares two texts in order to find text borrowings in one of them and returns the result in percentage of borrowings.
 
-It deletes stop words in input text
+Before comparing, texts are processed: they are normalized, divided into shingles and hashed.
 
 ## API
 
@@ -14,28 +14,33 @@ It deletes stop words in input text
 
 ```TextProcessing.processText() -> string``` - returns result text without stop words
 
+```divideTextIntoShingles -> list``` - returns a list of hashed shingles
+
+```compareTexts -> int``` - returns a percentage of the borrowed text
+
 ## Examples
 
-**Taking text from file in *utf-8***
+**Taking two texts from files in *utf-8***
 
 ```
-from TextProcessingClass import TextProcessing
-import codecs
-
-path = "C:\\Users\\Lenovo\\Desktop\\Text.txt"
-file = codecs.open(path, encoding='utf-8')
-
-Text = TextProcessing(file.read())
-file.close()
-print(Text.processText())
+path1 = "C:\\Users\\Lenovo\\Desktop\\HSE\\test1.txt"
+path2 = "C:\\Users\\Lenovo\\Desktop\\HSE\\test2.txt"
+file1 = codecs.open(path1, encoding='utf-8')
+file2 = codecs.open(path2, encoding='utf-8')
 ```
 
-**Taking text from client code**
+**Process two texts**
 
 ```
-from TextProcessingClass import TextProcessing
-Text = TextProcessing("Hello world!")
-print(Text.processText())
+Text1 = divideTextIntoShingles(TextProcessing(file1.read()).processText())
+Text2 = divideTextIntoShingles(TextProcessing(file2.read()).processText())
+```
+
+**Showing a percent of the borrowed text**
+
+```
+percent = compareTexts(Text1, Text2)
+print('{}% of the text is borrowed'.format(percent))
 ```
 
 ## Notes
