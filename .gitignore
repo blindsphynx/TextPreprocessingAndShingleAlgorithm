@@ -11,9 +11,7 @@
 .idea/**/usage.statistics.xml
 .idea/**/dictionaries
 .idea/**/shelf
-test1.txt
-test2.txt
-test3.txt
+tests
 
 # AWS User-specific
 .idea/**/aws.xml

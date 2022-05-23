@@ -25,7 +25,6 @@ class TextProcessing:
                     try:
                         text = text[:i] + chr(EngToRuDict[ord(text[i])]) + text[i + 1:]
                     except KeyError:
-                        print("Undefined symbol {} in text".format(text[i]))
                         continue
 
         self._text = text
